@@ -1,4 +1,4 @@
-esplan
+esplan [![build status][travis-image]][travis-url]
 ======
 
 ## Desctiption
@@ -43,3 +43,10 @@ Result (If `mayBeResolve()` returns wrong value `['foo', 'wrong value!']`):
 ```console
 Error: Expected 3 assertions, but actually 2 assertions called
 ```
+
+## License
+
+MIT License: Teppei Sato &lt;teppeis@gmail.com&gt;
+
+[travis-image]: https://travis-ci.org/teppeis/esplan.svg?branch=master
+[travis-url]: https://travis-ci.org/teppeis/esplan
