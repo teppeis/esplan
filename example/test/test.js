@@ -6,25 +6,25 @@ var esplan = require('../../');
 var assert = esplan.register(require('assert'));
 
 describe('Promise', function() {
-    it('should use `done` for test?', function() {
-        Promise.resolve().then(function() {
-            assert(false);
+    function mayBeResolveWithOne() {
+        // return Promise.resolve(1); // correct
+        return Promise.resolve(2); // bug
+    }
+
+    it('ignores an assertion error in `then` function', function() {
+        mayBeResolveWithOne().then(function(value) {
+            assert.equal(value, 1);
         });
     });
 
-    it('5000ms enable', function(done) {
-        this.enableTimeouts(true);
-        setTimeout(done, 5000);
-    });
+    function mayBeRejected(){ 
+        // return Promise.reject(new Error('woo')); // correct
+        return Promise.resolve('woo'); // bug
+    }
 
-
-    it('5000ms disable', function(done) {
-        this.enableTimeouts(false);
-        setTimeout(done, 5000);
-    });
-
-    it('5000ms no enable', function(done) {
-        // this.enableTimeouts(false);
-        setTimeout(done, 5000);
+    it('can not detect if mayBeRejected() resolves promise in the wrong', function () {
+        return mayBeRejected().catch(function (error) {
+            assert(error.message === 'woo');
+        });
     });
 });

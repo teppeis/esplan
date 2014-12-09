@@ -5,7 +5,7 @@ var estemplate = require('estemplate');
 
 var register = require('./lib/assert-register');
 
-var planTmpl = estemplate.compile('assert.$$plan(<%= tests %>, $$done);');
+var planTmpl = estemplate.compile('assert.$$plan(this, <%= tests %>, $$done);');
 var resetTmpl = estemplate.compile('assert.$$reset();');
 
 var assertMatchers = [

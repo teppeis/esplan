@@ -10,7 +10,7 @@ describe('esplan', function() {
         it('inserts assert.$$plan(0, $done)', function() {
             assertInstrument(
                 'it("foo", function() {});',
-                'it("foo", function($$done) {assert.$$plan(0, $$done);});'
+                'it("foo", function($$done) {assert.$$plan(this, 0, $$done);});'
             );
         });
     });
@@ -19,14 +19,14 @@ describe('esplan', function() {
         it('inserts assert.$$plan(1, $done)', function() {
             assertInstrument(
                 'it("foo", function() {assert(true);});',
-                'it("foo", function($$done) {assert.$$plan(1, $$done); assert(true);});'
+                'it("foo", function($$done) {assert.$$plan(this, 1, $$done); assert(true);});'
             );
         });
 
         it('counts assert.ok', function() {
             assertInstrument(
                 'it("foo", function() {assert.ok(true); assert.foo(true);});',
-                'it("foo", function($$done) {assert.$$plan(1, $$done); assert.ok(true); assert.foo(true);});'
+                'it("foo", function($$done) {assert.$$plan(this, 1, $$done); assert.ok(true); assert.foo(true);});'
             );
         });
     });
@@ -35,7 +35,7 @@ describe('esplan', function() {
         it('inserts assert.$$plan(2, $done)', function() {
             assertInstrument(
                 'it("foo", function() {assert(true); assert(false);});',
-                'it("foo", function($$done) {assert.$$plan(2, $$done); assert(true); assert(false);});'
+                'it("foo", function($$done) {assert.$$plan(this, 2, $$done); assert(true); assert(false);});'
             );
         });
     });
