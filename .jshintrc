@@ -84,6 +84,7 @@
 
     // Custom Globals
     "globals"       : {         // additional predefined global variables
-        "context": true
+        "context": true,
+        "Promise": true
     }
 }
