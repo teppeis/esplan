@@ -1,0 +1,34 @@
+{
+  "name": "esplan",
+  "version": "1.0.0",
+  "description": "Count assertions in your test cases with static code analysis",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/teppeis/esplan"
+  },
+  "keywords": [
+    "test",
+    "assert"
+  ],
+  "author": "Teppei Sato <teppeis@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teppeis/esplan/issues"
+  },
+  "homepage": "https://github.com/teppeis/esplan",
+  "devDependencies": {
+    "esprima": "^1.2.2",
+    "espurify": "^1.0.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^2.0.1",
+    "sinon": "^1.12.1"
+  },
+  "dependencies": {
+    "esquery": "^0.3.0",
+    "estemplate": "^0.4.0"
+  }
+}
