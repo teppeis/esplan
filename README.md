@@ -1,7 +1,7 @@
-esplan [![build status][travis-image]][travis-url]
+esplan [![NPM version][npm-image]][npm-url] [![build status][travis-image]][travis-url] [![Dependency Status][deps-image]][deps-url]
 ======
 
-## Desctiption
+## Description
 
 Count assertions in your test cases with static code analysis before execution and wait until all assertions are completed.
 
@@ -50,5 +50,9 @@ Error: Expected 3 assertions, but actually 2 assertions called
 
 MIT License: Teppei Sato &lt;teppeis@gmail.com&gt;
 
+[npm-image]: https://img.shields.io/npm/v/esplan.svg
+[npm-url]: https://npmjs.org/package/esplan
 [travis-image]: https://travis-ci.org/teppeis/esplan.svg?branch=master
 [travis-url]: https://travis-ci.org/teppeis/esplan
+[deps-image]: https://david-dm.org/teppeis/esplan.svg
+[deps-url]: https://david-dm.org/teppeis/esplan
