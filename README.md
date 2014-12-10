@@ -9,7 +9,7 @@ Count assertions in your test cases with static code analysis before execution a
 
 Input: 
 ```javascript
-var esplan = require('../../');
+var esplan = require('esplan');
 var assert = esplan.register(require('assert'));
 
 describe('Promise', function() {
@@ -20,15 +20,17 @@ describe('Promise', function() {
             assert.equal(value[1], 'bar');
         });
     });
+});
 ```
 
 Output: 
 ```javascript
-var esplan = require('../../');
+var esplan = require('esplan');
 var assert = esplan.register(require('assert'));
 
 describe('Promise', function () {
-    it('can not detect an assertion error in `then` function', function($$done) { // `$$done` is added!
+    // `$$done` is added!
+    it('can not detect an assertion error in `then` function', function($$done) {
         assert.$$plan(this, 3, $$done); // this line is inserted!
         mayBeResolve().then(function (value) {
             assert.equal(value.length, 2);
@@ -39,7 +41,7 @@ describe('Promise', function () {
 });
 ```
 
-Result (If `mayBeResolve()` returns wrong value `['foo', 'wrong value!']`):
+Result (If `mayBeResolve()` returns wrong value `['foo', 'wrong!']`):
 ```console
 Error: Expected 3 assertions, but actually 2 assertions called
 ```
