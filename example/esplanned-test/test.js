@@ -3,13 +3,29 @@ var Promise = require('ypromise');
 var esplan = require('../../');
 var assert = esplan.register(require('assert'));
 describe('Promise', function () {
-    function mayBeResolveWithOne() {
-        return Promise.resolve(2);
+    function syncOrAsyncCallback(callback) {
+        callback();
+        return true;
     }
-    it('ignores an assertion error in `then` function', function ($$done) {
-        assert.$$plan(this, 1, $$done);
-        mayBeResolveWithOne().then(function (value) {
-            assert.equal(value, 1);
+    it('wait until all assertions are completed', function ($$done) {
+        assert.$$plan(this, 2, $$done);
+        var result = syncOrAsyncCallback(function () {
+            assert(true);
+        });
+        assert(result);
+    });
+    function mayBeResolve() {
+        return Promise.resolve([
+            'foo',
+            'wrong value!'
+        ]);
+    }
+    it('can not detect an assertion error in `then` function', function ($$done) {
+        assert.$$plan(this, 3, $$done);
+        mayBeResolve().then(function (value) {
+            assert.equal(value.length, 2);
+            assert.equal(value[0], 'foo');
+            assert.equal(value[1], 'bar');
         });
     });
     function mayBeRejected() {
