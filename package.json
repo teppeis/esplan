@@ -4,7 +4,8 @@
   "description": "Count assertions in your test cases with static code analysis",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build:example": "node example/build.js"
   },
   "repository": {
     "type": "git",

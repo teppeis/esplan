@@ -6,14 +6,28 @@ var esplan = require('../../');
 var assert = esplan.register(require('assert'));
 
 describe('Promise', function() {
-    function mayBeResolveWithOne() {
-        // return Promise.resolve(1); // correct
-        return Promise.resolve(2); // bug
+    function syncOrAsyncCallback(callback) {
+        callback();
+        return true;
     }
 
-    it('ignores an assertion error in `then` function', function() {
-        mayBeResolveWithOne().then(function(value) {
-            assert.equal(value, 1);
+    it('wait until all assertions are completed', function() {
+        var result = syncOrAsyncCallback(function() {
+            assert(true);
+        });
+        assert(result);
+    });
+
+    function mayBeResolve() {
+        // return Promise.resolve(['foo', 'bar']); // correct
+        return Promise.resolve(['foo', 'wrong value!']);// bug
+    }
+
+    it('can not detect an assertion error in `then` function', function() {
+        mayBeResolve().then(function(value) {
+            assert.equal(value.length, 2);
+            assert.equal(value[0], 'foo');
+            assert.equal(value[1], 'bar');
         });
     });
 
