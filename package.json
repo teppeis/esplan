@@ -4,8 +4,9 @@
   "description": "Count assertions in your test cases with static code analysis",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "build:example": "node example/build.js"
+    "test": "npm run lint && mocha",
+    "build:example": "node example/build.js",
+    "lint": "jscs index.js lib test example/build.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "espurify": "^1.0.0",
     "expect.js": "^0.3.1",
     "glob": "^4.3.1",
+    "jscs": "^1.11.3",
     "mkdirp": "^0.5.0",
     "mocha": "^2.0.1",
     "sinon": "^1.12.1",
