@@ -43,7 +43,7 @@ function esplan(ast) {
         assertMatchers.forEach(function(assertMatcher) {
             numOfAssertions += esquery.match(testcase, assertMatcher).length;
         });
-        
+
         testcase.body.body.unshift(planTmpl({
             tests: {
                 'type': 'Literal',

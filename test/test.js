@@ -49,7 +49,6 @@ describe('esplan', function() {
         });
     });
 
-
     function assertInstrument(originalCode, expectedCode) {
         var ast = esprima.parse(originalCode);
         var actual = esplan(ast);
