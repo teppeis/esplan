@@ -1,27 +1,18 @@
 {
   "name": "esplan",
-  "version": "0.1.2",
   "description": "Count assertions in your test cases with static code analysis",
+  "version": "0.1.2",
+  "author": "Teppei Sato <teppeis@gmail.com>",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && mocha",
     "build:example": "node example/build.js",
-    "lint": "jscs index.js lib test example/build.js"
+    "lint": "jscs index.js lib test example/build.js",
+    "test": "npm run lint && mocha"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/teppeis/esplan"
+  "dependencies": {
+    "esquery": "^0.3.0",
+    "estemplate": "^0.4.0"
   },
-  "keywords": [
-    "test",
-    "assert"
-  ],
-  "author": "Teppei Sato <teppeis@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/teppeis/esplan/issues"
-  },
-  "homepage": "https://github.com/teppeis/esplan",
   "devDependencies": {
     "escodegen": "^1.6.1",
     "esprima": "^2.0.0",
@@ -34,8 +25,17 @@
     "sinon": "^1.12.2",
     "ypromise": "^0.3.0"
   },
-  "dependencies": {
-    "esquery": "^0.3.0",
-    "estemplate": "^0.4.0"
-  }
+  "homepage": "https://github.com/teppeis/esplan",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/teppeis/esplan"
+  },
+  "bugs": {
+    "url": "https://github.com/teppeis/esplan/issues"
+  },
+  "keywords": [
+    "assert",
+    "test"
+  ],
+  "license": "MIT"
 }
