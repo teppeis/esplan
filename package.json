@@ -4,6 +4,10 @@
   "version": "0.1.2",
   "author": "Teppei Sato <teppeis@gmail.com>",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "lib"
+  ],
   "scripts": {
     "build:example": "node example/build.js",
     "lint": "eslint *.js lib test example/build.js",

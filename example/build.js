@@ -10,13 +10,13 @@ var escodegen = require('escodegen');
 
 var esplan = require('../');
 
-var dir = __dirname + '/esplanned-test';
+var dir = path.join(__dirname, 'esplanned-test');
 mkdirp.sync(dir);
 
-var files = glob.sync(__dirname + '/test/*.js');
+var files = glob.sync(path.join(__dirname, 'test', '*.js'));
 
 files.forEach(function(file) {
   var ast = esprima.parse(fs.readFileSync(file));
   var code = escodegen.generate(esplan(ast));
-  fs.writeFileSync(dir + '/' + path.basename(file), code);
+  fs.writeFileSync(path.join(dir, path.basename(file)), code);
 });
