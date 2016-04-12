@@ -1,9 +1,15 @@
-esplan [![NPM version][npm-image]][npm-url] [![build status][travis-image]][travis-url] [![Dependency Status][deps-image]][deps-url]
+esplan
 ======
+
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![Dependency Status][deps-image]][deps-url]
+![MIT License][license]
 
 ## Description
 
 Count assertions in your test cases with static code analysis before execution and wait until all assertions are completed.
+
 
 ## Example
 
@@ -56,3 +62,4 @@ MIT License: Teppei Sato &lt;teppeis@gmail.com&gt;
 [travis-url]: https://travis-ci.org/teppeis/esplan
 [deps-image]: https://david-dm.org/teppeis/esplan.svg
 [deps-url]: https://david-dm.org/teppeis/esplan
+[license]: https://img.shields.io/npm/l/esplan.svg
