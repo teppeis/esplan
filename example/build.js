@@ -16,7 +16,7 @@ mkdirp.sync(dir);
 var files = glob.sync(__dirname + '/test/*.js');
 
 files.forEach(function(file) {
-    var ast = esprima.parse(fs.readFileSync(file));
-    var code = escodegen.generate(esplan(ast));
-    fs.writeFileSync(dir + '/' + path.basename(file), code);
+  var ast = esprima.parse(fs.readFileSync(file));
+  var code = escodegen.generate(esplan(ast));
+  fs.writeFileSync(dir + '/' + path.basename(file), code);
 });

@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build:example": "node example/build.js",
-    "lint": "jscs index.js lib test example/build.js",
+    "lint": "eslint *.js lib test example/build.js",
     "test": "npm run lint && mocha"
   },
   "dependencies": {
