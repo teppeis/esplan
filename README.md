@@ -1,6 +1,8 @@
 esplan
 ======
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/teppeis/esplan.svg)](https://greenkeeper.io/)
+
 [![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
 [![Dependency Status][deps-image]][deps-url]
